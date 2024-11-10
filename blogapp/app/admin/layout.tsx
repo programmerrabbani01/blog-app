@@ -1,13 +1,19 @@
 import AuthContextProvider from "@/context/AuthContext.tsx";
 import React from "react";
+import SideBar from "./component/SideBar.tsx";
 
 type Props = {
   children: React.ReactNode;
 };
-export default function layout({ children }: Props) {
+export default function Layout({ children }: Props) {
   return (
     <>
-      <AuthContextProvider>{children}</AuthContextProvider>
+      <AuthContextProvider>
+        <section className="flex">
+          <SideBar />
+          {children}
+        </section>
+      </AuthContextProvider>
     </>
   );
 }
